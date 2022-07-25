@@ -56,6 +56,7 @@ window.addEventListener("DOMContentLoaded", () => {
 	images.rocks[4][4] = new Image();
 	images.rocks[4][4].src = 'img/rock05-4.png'
 
+	// レベル設定(現在は計算でレベルを求めているが微調整用とpatternの為残す)
 	levels.push({'level':1,'from':	0		,'to':1000	,'pattern':0});
 	levels.push({'level':2,'from':	1000	,'to':2000	,'pattern':0});
 	levels.push({'level':3,'from':	2000	,'to':3000	,'pattern':0});
@@ -157,6 +158,7 @@ window.addEventListener("DOMContentLoaded", () => {
 	levels.push({'level':99,'from':	98000	,'to':99000	,'pattern':17});
 	levels.push({'level':100,'from':99000	,'to':9999999999999	,'pattern':17});
 
+	// 岩設定パターン群
 	patterns[0].push([3,0,0,0,0]);
 	patterns[0].push([2,1,0,0,0]);
 	patterns[0].push([1,2,0,0,0]);
@@ -296,6 +298,7 @@ window.addEventListener("DOMContentLoaded", () => {
 	patterns[17].push([0,0,1,0,5]);
 
 });
+// 画面ロード時
 window.addEventListener("load", () => {
 	canvas = document.getElementById("board");
 	context = canvas.getContext("2d");
@@ -307,6 +310,7 @@ window.addEventListener("load", () => {
 	point.innerHTML = controlValues.point;
 
 	if(navigator.userAgent.match(/(iPhone|iPad|iPod|Android)/i)){
+		// モバイル対応
 		ONE_BLOCK_SPEED *= 2;
 		document.getElementById("board").className = "not-pointer";
 	}
@@ -347,6 +351,7 @@ window.addEventListener('touchmove', (event) => {
     event.preventDefault();
 });
 
+// 押した時
 window.addEventListener("mousedown", (event) => {
 	window_mousedown(event);
 });
@@ -361,6 +366,7 @@ function window_mousedown(event){
 		mouseinfo.y = event.clientY - rect.top;
 	}
 }
+// 移動した時
 window.addEventListener("mousemove", (event)=> {
 	window_mousemove(event);
 });
@@ -374,6 +380,7 @@ function window_mousemove(event){
 		mouseinfo.y = event.clientY - rect.top;
 	}
 }
+// 離した時または画面外に移動した時
 window.addEventListener("mouseup", ()=> {
 	window_mouseup();
 });
@@ -423,7 +430,7 @@ function board_reset(){
 		}
 	}
 	info = {'rocks':[],'type':0,'mode':0,'erase':0,'scoreTemp':0,'score':0,'level':0,'isEnd':false,'frame':0,'time':0,'isEvents':false};
-//	info.score = 90000;
+
 	// 背景リセット
 	board_clear();
 
@@ -511,7 +518,6 @@ function score_set(){
 	info.level = Math.ceil(info.score / 1000);
 	level.innerHTML = info.level;
 }
-
 // ゲーム進行
 function game_progress(){
 	intervalId = null;
@@ -566,13 +572,13 @@ function game_progress(){
 		if(info.mode < BLOCK_WAIT){
 			info.mode += Math.floor(info.frame / ONE_FRAME_MILLISECOND);
 		}else{
+			// ゲームオーバー判定
 			info.isEnd = false;
 			for(x = 0; x < BLOCK_X_COUNT; x++){
 				if(map[x][0].type != 0 && (map[x][1].type != 0 && map[x][1].mode == 0)){
 					info.isEnd = true;
 				}
 			}
-
 			if(info.isEnd == true){
 				// ゲームオーバー
 				controlValues.point += Math.floor(info.level / 100);
