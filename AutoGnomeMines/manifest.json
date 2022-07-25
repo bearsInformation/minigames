@@ -1,0 +1,42 @@
+{
+	"name": "AutoGnomeMines",
+	"description": "GnomeMines自動実行",
+	"action": {},
+	"manifest_version": 3,
+	"version": "3.0",
+	"permissions": [
+		"activeTab",
+		"tabCapture",
+		"tabs",
+		"storage",
+		"scripting",
+		"nativeMessaging"
+	],
+	"host_permissions": [
+		"<all_urls>",
+		"https://app.gnomemines.com/*"
+	],
+	"background": {
+		"service_worker": "background.js",
+		"type": "module"
+	},
+	"content_scripts": [
+		{
+			"matches": ["https://app.gnomemines.com/*"],
+			"js": ["content.js"]
+		}
+	],
+	"action": {
+		"default_popup": "popup.html"
+	},
+  	"web_accessible_resources": [{
+		"resources": [ "*.png"],
+		"matches": [ "https://app.gnomemines.com/*" ]
+	}],
+	"icons": {
+		"16": "images/icon16.png",
+		"32": "images/icon32.png",
+		"48": "images/icon48.png",
+		"128": "images/icon128.png"
+	}
+}

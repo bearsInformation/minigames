@@ -1,0 +1,9 @@
+{
+  "name": "cefgm",
+  "description": "Chrome拡張によるGnomeMines操作",
+  "path": "ChromeExtFuncGnomeMines.exe",
+  "type": "stdio",
+  "allowed_origins": [
+     "chrome-extension://gkmgamnbbeabkjjhjdppcdlchbcbganf/"
+  ]
+}

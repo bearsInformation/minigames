@@ -1,0 +1,9 @@
+{
+  "name": "cefmm",
+  "description": "Chrome拡張によるMetaMask操作",
+  "path": "ChromeExtFuncMetamask.exe",
+  "type": "stdio",
+  "allowed_origins": [
+     "chrome-extension://gkmgamnbbeabkjjhjdppcdlchbcbganf/"
+  ]
+}
