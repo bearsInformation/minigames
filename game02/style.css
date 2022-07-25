@@ -1,0 +1,239 @@
+@import url(https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap);
+@font-face {
+	font-family: 'symbol';
+	src: local("Meiryo UI"), local("MS UI Gothic"), local('Kosugi Regular'), local('Kosugi-Regular'), url(https://fonts.gstatic.com/s/kosugi/v6/pxiFyp4_v8FCjlI4MdLqfUsvcYfqJiw3zzHMw5Qu_B3d0SE.118.woff2);
+	font-style: normal;
+	font-weight: 400;
+	unicode-range: U+005C, U+8658;
+}
+html{
+	touch-action: manipulation;
+}
+body{
+	font-family: 'symbol','M PLUS Rounded 1c',monospace;
+	line-height:1.3em;
+	padding: 0;
+	margin: 0;
+	position: relative;
+}
+.board{
+	pointer-events: none;
+	touch-action: none;
+	user-select: none;
+}
+/* ----- ”wŒi ----- */
+div.background{
+	width: 100%;
+	height: 100%;
+	position: relative;
+	background-color: #a19b96;
+}
+/* ----- ”wŒi(ã) ----- */
+div.backgroundTop{
+	background: url('img/FooterBg1.webp');
+	background-repeat: no-repeat;
+	background-position: center;
+	box-sizing: border-box;
+	display: flex;
+	width: 100%;
+	height: 270px;
+	background-size: 1970px 270px;
+	margin: 0;
+	position: absolute;
+	z-index:50;
+	pointer-events: none;
+	touch-action: none;
+	user-select: none;
+}
+div.backgroundTop > table{
+	box-sizing: border-box;
+	display: flex;
+	height: 100px;
+	background-size: 1970px 400px;
+	margin: 0;
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	top: 0;
+    font-size: 2vh;
+}
+/* ----- ”wŒi(‰º) ----- */
+div.backgroundBottom{
+	background: url('img/FooterBg2.webp');
+	background-repeat: no-repeat;
+	background-position: center;
+	box-sizing: border-box;
+	display: flex;
+	width: 100%;
+	height: 400px;
+	background-size: 1970px 400px;
+	margin: 0;
+	position: absolute;
+	bottom: 0px;
+	z-index: 50;
+	pointer-events: none;
+	touch-action: none;
+	user-select: none;
+}
+div.backgroundBottom > table{
+	box-sizing: border-box;
+	display: flex;
+	background-size: 1970px 400px;
+	margin: 0;
+	position: absolute;
+	left: 50%;
+    bottom: 3.2vh;
+	transform: translateX(-50%);
+    font-size: 2vh;
+}
+/* ----- ƒƒCƒ“ ----- */
+canvas.main{
+	position: absolute;
+	background-color: RGBA(255,255,255,1);
+	top: 49%;
+	left: 50%;
+	transform: translateY(-50%) translateX(-50%);
+	z-index: 100;
+	cursor: pointer;
+	cursor: hand;
+}
+/* ----- €–Ú ----- */
+.item{
+	position: relative;
+    height: 2.4vh;
+    background-color: RGBA(200,200,200,0.8);
+    top: 1.2vh;
+    width: 96%;
+    border-radius: 6px;
+    border: 2px solid #999;
+}
+.item > .title {
+    color: #fff;
+    text-shadow: 0.5px 0.5px 0 #666, -0.5px -0.5px 0 #666, -0.5px 0.5px 0 #666, 0.5px -0.5px 0 #666, 0px 0.5px 0 #666, 0 -0.5px 0 #666, -0.5px 0 0 #666, 0.5px 0 0 #666;
+    position: absolute;
+    left: -6px;
+    top: -1.7vh;
+    font-size: 1.6vh;
+}
+.item > .number {
+    font-size: 1.5vh;
+    text-align: right;
+    padding: 0 3px;
+	margin: 1px 0;
+}
+/* ----- ŠJŽn‰æ–Ê ----- */
+#startup{
+	width: 100%;
+	height: 100%;
+	background-color: RGBA(255,255,255,0.6);
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    z-index:800;
+}
+#startup > div{
+	position: absolute;
+    width: 400px;
+    height: 680px;
+    background-color: RGBA(255,255,255,0.9);
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    border-radius: 3px;
+    border: 2px solid #999;
+	pointer-events: none;
+	touch-action: none;
+	user-select: none;
+}
+#startup > div > table{
+	width: 100%;
+	margin-top: 50px;
+}
+#startup > div > table > tbody > tr > td{
+	text-align: center;
+}
+#startup > div > table > tbody > tr > td.title{
+	font-size: 4vw;
+}
+#startup > div > table > tbody > tr > td.exp{
+	font-size: 2vw;
+	color: #666;
+}
+/* ----- I—¹‰æ–Ê ----- */
+#gameover{
+	width: 100%;
+	height: 100%;
+	background-color: RGBA(255,255,255,0.6);
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    z-index:800;
+}
+#gameover > div{
+	position: absolute;
+    width: 400px;
+    height: 280px;
+    background-color: RGBA(255,255,255,0.9);
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    border-radius: 3px;
+    border: 2px solid #999;
+	pointer-events: none;
+	touch-action: none;
+	user-select: none;
+}
+#gameover > div > table{
+	width: 100%;
+	margin-top: 50px;
+}
+#gameover > div > table > tbody > tr > td{
+	text-align: center;
+}
+#gameover > div > table > tbody > tr > td.title{
+	font-size: 4vw;
+}
+#gameover > div > table > tbody > tr > td.exp{
+	font-size: 2vw;
+	color: #666;
+}
+.icons{
+	position: relative;
+	height: 140px;
+}
+.icon1{
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+}
+.icon2{
+	position: absolute;
+    top: 80%;
+    left: 57%;
+    transform: translateY(-50%) translateX(-50%);
+}
+
+/* ----- ƒ{ƒ^ƒ“ ----- */
+.btn {
+	display: inline-block;
+	padding: 7px 20px;
+	border-radius: 25px;
+	text-decoration: none;
+	color: #FFF;
+	background-image: linear-gradient(45deg, #FFC107 0%, #ff8b5f 100%);
+	transition: .4s;
+	cursor: pointer;
+	cursor: hand;
+	pointer-events: auto;
+	font-size: 2.5vw;
+
+}
+.btn:hover {
+	background-image: linear-gradient(45deg, #FFC107 0%, #f76a35 100%);
+}
+/* ----- ”ñ•\Ž¦ ----- */
+.display-none{
+	z-index: -100 !important; 
+	display: none !important;
+}
