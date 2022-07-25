@@ -25,7 +25,7 @@ div.background{
 }
 /* ----- îwåi(è„) ----- */
 div.backgroundTop{
-	background: url('img/FooterBg1.webp');
+	/* background: url('img/FooterBg1.webp'); */
 	background-repeat: no-repeat;
 	background-position: center;
 	box-sizing: border-box;
@@ -54,7 +54,7 @@ div.backgroundTop > table{
 }
 /* ----- îwåi(â∫) ----- */
 div.backgroundBottom{
-	background: url('img/FooterBg2.webp');
+	/* background: url('img/FooterBg2.webp'); */
 	background-repeat: no-repeat;
 	background-position: center;
 	box-sizing: border-box;
