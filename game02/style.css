@@ -16,11 +16,6 @@ body{
 	margin: 0;
 	position: relative;
 }
-.board{
-	pointer-events: none;
-	touch-action: none;
-	user-select: none;
-}
 /* ----- ”wŒi ----- */
 div.background{
 	width: 100%;
@@ -87,7 +82,7 @@ div.backgroundBottom > table{
     font-size: 2vh;
 }
 /* ----- ƒƒCƒ“ ----- */
-canvas.main{
+#board{
 	position: absolute;
 	background-color: RGBA(255,255,255,1);
 	top: 49%;
@@ -96,7 +91,13 @@ canvas.main{
 	z-index: 100;
 	cursor: pointer;
 	cursor: hand;
+	touch-action: none;
+	user-select: none;
 }
+.not-pointer{
+ 	pointer-events: none;
+}
+
 /* ----- €–Ú ----- */
 .item{
 	position: relative;

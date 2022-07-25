@@ -14,7 +14,7 @@ let point;
 let intervalId = null;
 
 let BLOCK_SIZE = 64;
-let ONE_BLOCK_SPEED = 8;
+let ONE_BLOCK_SPEED = 12;
 let ONE_BLOCK_MOVE = BLOCK_SIZE / ONE_BLOCK_SPEED;
 const ONE_FRAME_MILLISECOND = 1000 / 48;	// ミリ秒
 const BLOCK_WAIT = 32;						// 秒
@@ -308,6 +308,7 @@ window.addEventListener("load", () => {
 
 	if(navigator.userAgent.match(/(iPhone|iPad|iPod|Android)/i)){
 		ONE_BLOCK_SPEED *= 2;
+		document.getElementById("board").className = "not-pointer";
 	}
 	// 画面サイズ調整
 	window_resize();
@@ -457,7 +458,7 @@ function rocks_set(counts){
 		}
 	}
 	// 岩タイプをランダム配置
-	let rnd = 6;
+	let rnd = 4;
 	let type = 0;
 	let xFrom = 0;
 	let xTo = 0;
@@ -468,8 +469,8 @@ function rocks_set(counts){
 			type = map[xFrom][0].type;
 			map[xFrom][0].type = map[xTo][0].type;
 			map[xTo][0].type = type;
+			rnd --;
 		}
-		rnd --;
 	}
 
 }
